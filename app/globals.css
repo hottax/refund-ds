@@ -1,26 +1,152 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Pretendard Variable */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-full: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ================================================
+   반값환급 Design Tokens — Light Mode
+   Primary: OKLCH 바이올렛 (hue 293°)
+   Stack: Next.js 15 + Tailwind v4 + shadcn base
+   ================================================ */
+:root {
+  /* Core */
+  --background:            oklch(1 0 0);
+  --foreground:            oklch(0.145 0 0);
+  --card:                  oklch(1 0 0);
+  --card-foreground:       oklch(0.145 0 0);
+  --popover:               oklch(1 0 0);
+  --popover-foreground:    oklch(0.145 0 0);
+
+  /* Brand — 바이올렛 계열 */
+  --primary:               oklch(0.5414 0.2456 293);
+  --primary-foreground:    oklch(1 0 0);
+  --primary-hover:         oklch(0.4814 0.2456 293);
+  --primary-subtle:        oklch(0.96 0.04 293);
+
+  /* Neutral */
+  --secondary:             oklch(0.97 0 0);
+  --secondary-foreground:  oklch(0.205 0 0);
+  --muted:                 oklch(0.97 0 0);
+  --muted-foreground:      oklch(0.556 0 0);
+  --accent:                oklch(0.97 0 0);
+  --accent-foreground:     oklch(0.205 0 0);
+
+  /* Semantic */
+  --destructive:           oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border:                oklch(0.922 0 0);
+  --input:                 oklch(0.922 0 0);
+  --ring:                  oklch(0.5414 0.2456 293);
+  --radius:                0.5rem;
+
+  /* 반값환급 확장 — Success (환급) */
+  --success:               oklch(0.527 0.154 150.069);
+  --success-foreground:    oklch(1 0 0);
+  --success-subtle:        oklch(0.95 0.05 150);
+
+  /* 반값환급 확장 — Warning (납부) */
+  --warning:               oklch(0.65 0.15 55);
+  --warning-foreground:    oklch(0.145 0 0);
+  --warning-subtle:        oklch(0.97 0.04 75);
+
+  /* 반값환급 확장 — 금액 색상 */
+  --amount-refund:         oklch(0.527 0.154 150.069);
+  --amount-tax:            oklch(0.65 0.15 55);
+  --amount-neutral:        oklch(0.556 0 0);
+
+  /* 반값환급 확장 — 카카오 */
+  --kakao:                 oklch(0.887 0.156 96.85);
+  --kakao-foreground:      oklch(0.145 0 0);
+
+  /* 반값환급 확장 — 섀도우 */
+  --shadow-sm:             0 1px 3px oklch(0 0 0 / 0.08);
+  --shadow-md:             0 4px 12px oklch(0 0 0 / 0.1);
+  --shadow-lg:             0 8px 24px oklch(0 0 0 / 0.12);
+
+  /* Font */
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* ================================================
+   Dark Mode
+   ================================================ */
+.dark {
+  --background:            oklch(0.145 0 0);
+  --foreground:            oklch(0.985 0 0);
+  --card:                  oklch(0.205 0 0);
+  --card-foreground:       oklch(0.985 0 0);
+  --popover:               oklch(0.205 0 0);
+  --popover-foreground:    oklch(0.985 0 0);
+  --primary:               oklch(0.6614 0.2256 293);
+  --primary-foreground:    oklch(0.145 0 0);
+  --primary-hover:         oklch(0.7014 0.2056 293);
+  --primary-subtle:        oklch(0.25 0.06 293);
+  --secondary:             oklch(0.269 0 0);
+  --secondary-foreground:  oklch(0.985 0 0);
+  --muted:                 oklch(0.269 0 0);
+  --muted-foreground:      oklch(0.708 0 0);
+  --accent:                oklch(0.269 0 0);
+  --accent-foreground:     oklch(0.985 0 0);
+  --destructive:           oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border:                oklch(0.269 0 0);
+  --input:                 oklch(0.269 0 0);
+  --ring:                  oklch(0.6614 0.2256 293);
+  --success:               oklch(0.627 0.154 150.069);
+  --success-foreground:    oklch(0.145 0 0);
+  --success-subtle:        oklch(0.2 0.05 150);
+  --warning:               oklch(0.75 0.15 55);
+  --warning-foreground:    oklch(0.145 0 0);
+  --warning-subtle:        oklch(0.25 0.05 75);
+  --amount-refund:         oklch(0.627 0.154 150.069);
+  --amount-tax:            oklch(0.75 0.15 55);
+  --amount-neutral:        oklch(0.708 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    font-family: var(--font-sans);
+  }
 }
