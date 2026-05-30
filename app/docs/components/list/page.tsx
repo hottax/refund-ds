@@ -1,13 +1,7 @@
+import { ChevronRight, User, Landmark, ClipboardList, Settings } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { PageHeader } from "@/components/docs/page-header";
 import { Section, PreviewBox, CodeBlock } from "@/components/docs/section";
-
-function ChevronRight() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
 
 export default function ListPage() {
   return (
@@ -32,12 +26,14 @@ export default function ListPage() {
                   <p className="text-xs mt-0.5" style={{ color: "var(--muted-foreground)" }}>{item.sub}</p>
                 </div>
                 <p className="text-sm font-bold tabular-nums shrink-0" style={{ color: item.valueColor }}>{item.value}</p>
-                <span style={{ color: "var(--muted-foreground)" }}><ChevronRight /></span>
+                <ChevronRight size={16} style={{ color: "var(--muted-foreground)" }} />
               </div>
             ))}
           </div>
         </PreviewBox>
-        <CodeBlock code={`<div className="rounded-xl border overflow-hidden" style={{ borderColor: "var(--border)" }}>
+        <CodeBlock code={`import { ChevronRight } from "lucide-react";
+
+<div className="rounded-xl border overflow-hidden" style={{ borderColor: "var(--border)" }}>
   {items.map((item) => (
     <div className="flex items-center gap-3 px-4 py-3.5 border-b last:border-b-0 cursor-pointer"
          style={{ borderColor: "var(--border)" }}>
@@ -46,7 +42,7 @@ export default function ListPage() {
         <p className="text-xs" style={{ color: "var(--muted-foreground)" }}>{item.sub}</p>
       </div>
       <p className="text-sm font-bold tabular-nums" style={{ color: item.valueColor }}>{item.value}</p>
-      <ChevronRight />
+      <ChevronRight size={16} style={{ color: "var(--muted-foreground)" }} />
     </div>
   ))}
 </div>`} />
@@ -55,19 +51,21 @@ export default function ListPage() {
       <Section title="설정 리스트 (아이콘 + 화살표)">
         <PreviewBox className="p-0 overflow-hidden">
           <div className="w-full rounded-xl border overflow-hidden" style={{ borderColor: "var(--border)" }}>
-            {[
-              { icon: "👤", label: "내 정보", sub: "이름, 주민등록번호" },
-              { icon: "🏦", label: "계좌 정보", sub: "환급 수령 계좌" },
-              { icon: "📋", label: "신청 내역", sub: "총 3건" },
-              { icon: "⚙️", label: "알림 설정", sub: "푸시, 이메일" },
-            ].map((item) => (
+            {(
+              [
+                { Icon: User, label: "내 정보", sub: "이름, 주민등록번호" },
+                { Icon: Landmark, label: "계좌 정보", sub: "환급 수령 계좌" },
+                { Icon: ClipboardList, label: "신청 내역", sub: "총 3건" },
+                { Icon: Settings, label: "알림 설정", sub: "푸시, 이메일" },
+              ] as { Icon: LucideIcon; label: string; sub: string }[]
+            ).map((item) => (
               <div key={item.label} className="flex items-center gap-3 px-4 py-3.5 border-b last:border-b-0 cursor-pointer" style={{ borderColor: "var(--border)" }}>
-                <span className="text-lg shrink-0">{item.icon}</span>
+                <item.Icon size={18} className="shrink-0" style={{ color: "var(--muted-foreground)" }} />
                 <div className="flex-1">
                   <p className="text-sm font-semibold">{item.label}</p>
                   <p className="text-xs" style={{ color: "var(--muted-foreground)" }}>{item.sub}</p>
                 </div>
-                <span style={{ color: "var(--muted-foreground)" }}><ChevronRight /></span>
+                <ChevronRight size={16} style={{ color: "var(--muted-foreground)" }} />
               </div>
             ))}
           </div>

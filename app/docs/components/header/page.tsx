@@ -1,3 +1,4 @@
+import { Banknote } from "lucide-react";
 import { PageHeader } from "@/components/docs/page-header";
 import { Section, PreviewBox, CodeBlock } from "@/components/docs/section";
 
@@ -36,12 +37,12 @@ export default function HeaderPage() {
 </div>`} />
       </Section>
 
-      <Section title="Icon + Title + Description">
+      <Section title="Image + Title + Description">
         <PreviewBox>
-          <div className="w-full flex items-start gap-4">
-            <div className="h-12 w-12 rounded-xl flex items-center justify-center shrink-0"
+          <div className="w-full flex flex-col gap-3">
+            <div className="h-12 w-12 rounded-xl flex items-center justify-center"
                  style={{ background: "var(--primary-subtle)" }}>
-              <span className="text-2xl">💰</span>
+              <Banknote size={24} style={{ color: "var(--primary)" }} />
             </div>
             <div>
               <h1 className="text-xl font-bold tracking-tight mb-1">₩345,600 환급 확정</h1>
@@ -51,10 +52,12 @@ export default function HeaderPage() {
             </div>
           </div>
         </PreviewBox>
-        <CodeBlock code={`<div className="flex items-start gap-4">
+        <CodeBlock code={`import { Banknote } from "lucide-react";
+
+<div className="flex flex-col gap-3">
   <div className="h-12 w-12 rounded-xl flex items-center justify-center"
        style={{ background: "var(--primary-subtle)" }}>
-    <MoneyIcon />
+    <Banknote size={24} style={{ color: "var(--primary)" }} />
   </div>
   <div>
     <h1 className="text-xl font-bold tracking-tight mb-1">₩345,600 환급 확정</h1>

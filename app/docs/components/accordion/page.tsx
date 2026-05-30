@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { PageHeader } from "@/components/docs/page-header";
 import { Section, PreviewBox, CodeBlock } from "@/components/docs/section";
 
@@ -21,16 +22,11 @@ function AccordionItem({
         onClick={() => setOpen(!open)}
       >
         <span className="text-sm font-semibold pr-4">{title}</span>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
+        <ChevronDown
+          size={16}
           className="shrink-0 transition-transform"
           style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", color: "var(--muted-foreground)" }}
-        >
-          <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        />
       </button>
       {open && (
         <div className="pb-4 text-sm leading-relaxed" style={{ color: "var(--muted-foreground)" }}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { X } from "lucide-react";
 import { PageHeader } from "@/components/docs/page-header";
 import { Section, PreviewBox, CodeBlock } from "@/components/docs/section";
 
@@ -30,9 +31,7 @@ function BottomSheet({
           <p className="text-base font-semibold">{title}</p>
           <button onClick={onClose} className="h-8 w-8 rounded-lg flex items-center justify-center"
                   style={{ background: "var(--muted)" }}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 12L12 2M2 2L12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
+            <X size={14} />
           </button>
         </div>
         <div className="px-5">{children}</div>

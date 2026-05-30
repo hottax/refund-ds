@@ -1,21 +1,6 @@
+import { Loader2 } from "lucide-react";
 import { PageHeader } from "@/components/docs/page-header";
 import { Section, PreviewBox, CodeBlock } from "@/components/docs/section";
-
-function Spinner({ size = 24 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      className="animate-spin"
-      style={{ color: "var(--primary)" }}
-    >
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeOpacity="0.2" />
-      <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 function SkeletonLine({ width = "100%", height = "1rem" }: { width?: string; height?: string }) {
   return (
@@ -37,22 +22,21 @@ export default function LoadingPage() {
 
       <Section title="Spinner">
         <PreviewBox>
-          <Spinner size={20} />
-          <Spinner size={24} />
-          <Spinner size={32} />
-          <Spinner size={40} />
+          <Loader2 size={20} className="animate-spin" style={{ color: "var(--primary)" }} />
+          <Loader2 size={24} className="animate-spin" style={{ color: "var(--primary)" }} />
+          <Loader2 size={32} className="animate-spin" style={{ color: "var(--primary)" }} />
+          <Loader2 size={40} className="animate-spin" style={{ color: "var(--primary)" }} />
         </PreviewBox>
-        <CodeBlock code={`<svg className="animate-spin" style={{ color: "var(--primary)" }}>
-  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeOpacity="0.2" />
-  <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="2" />
-</svg>`} />
+        <CodeBlock code={`import { Loader2 } from "lucide-react";
+
+<Loader2 size={24} className="animate-spin" style={{ color: "var(--primary)" }} />`} />
       </Section>
 
       <Section title="페이지 로딩 오버레이">
         <PreviewBox>
           <div className="relative h-40 w-full rounded-xl border overflow-hidden" style={{ borderColor: "var(--border)" }}>
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3" style={{ background: "rgba(255,255,255,0.9)" }}>
-              <Spinner size={32} />
+              <Loader2 size={32} className="animate-spin" style={{ color: "var(--primary)" }} />
               <p className="text-sm font-semibold">소득 정보 조회 중...</p>
               <p className="text-xs" style={{ color: "var(--muted-foreground)" }}>국세청 데이터를 불러오고 있습니다</p>
             </div>
@@ -63,7 +47,7 @@ export default function LoadingPage() {
   {isLoading && (
     <div className="absolute inset-0 flex flex-col items-center justify-center gap-3"
          style={{ background: "rgba(255,255,255,0.9)" }}>
-      <Spinner size={32} />
+      <Loader2 size={32} className="animate-spin" style={{ color: "var(--primary)" }} />
       <p className="text-sm font-semibold">소득 정보 조회 중...</p>
     </div>
   )}

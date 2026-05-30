@@ -1,3 +1,4 @@
+import { ChevronLeft, X } from "lucide-react";
 import { PageHeader } from "@/components/docs/page-header";
 import { Section, PreviewBox, CodeBlock } from "@/components/docs/section";
 
@@ -22,16 +23,12 @@ function TopNav({
       <div className="w-10">
         {showBack && (
           <button className="h-9 w-9 rounded-lg flex items-center justify-center -ml-2 transition-colors hover:bg-muted">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronLeft size={20} />
           </button>
         )}
         {showClose && (
           <button className="h-9 w-9 rounded-lg flex items-center justify-center -ml-2 transition-colors hover:bg-muted">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M5 15L15 5M5 5L15 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
+            <X size={20} />
           </button>
         )}
       </div>

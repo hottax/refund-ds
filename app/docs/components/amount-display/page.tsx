@@ -1,3 +1,4 @@
+import { CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/docs/page-header";
 import { Section, PreviewBox, CodeBlock, PropTable } from "@/components/docs/section";
 
@@ -71,7 +72,7 @@ export default function AmountDisplayPage() {
         <PreviewBox>
           <div className="w-full text-center py-4">
             <div className="inline-flex h-16 w-16 items-center justify-center rounded-full mb-4" style={{ background: "var(--success-subtle)" }}>
-              <span className="text-2xl">🎉</span>
+              <CheckCircle2 size={28} style={{ color: "var(--success)" }} />
             </div>
             <p className="text-sm font-semibold mb-1">환급 신청 완료</p>
             <p className="text-xs mb-6" style={{ color: "var(--muted-foreground)" }}>30일 이내 계좌로 입금됩니다</p>
