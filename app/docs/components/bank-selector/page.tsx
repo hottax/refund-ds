@@ -1,19 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { PageHeader } from "@/components/docs/page-header";
 import { Section, PreviewBox, CodeBlock } from "@/components/docs/section";
 
 const BANKS = [
-  { id: "kb", name: "국민은행", color: "#FFB800" },
-  { id: "shinhan", name: "신한은행", color: "#0046FF" },
-  { id: "woori", name: "우리은행", color: "#0078C0" },
-  { id: "hana", name: "하나은행", color: "#009178" },
-  { id: "kakao", name: "카카오뱅크", color: "#FAE100" },
-  { id: "toss", name: "토스뱅크", color: "#0064FF" },
-  { id: "nh", name: "농협은행", color: "#009C4B" },
-  { id: "ibk", name: "기업은행", color: "#006FBA" },
+  { id: "kb", name: "국민은행" },
+  { id: "shinhan", name: "신한은행" },
+  { id: "woori", name: "우리은행" },
+  { id: "hana", name: "하나은행" },
+  { id: "kakao", name: "카카오뱅크" },
+  { id: "toss", name: "토스뱅크" },
+  { id: "nh", name: "농협은행" },
+  { id: "ibk", name: "기업은행" },
 ];
+
+function BankLogo({ id, size = 36 }: { id: string; size?: number }) {
+  return (
+    <Image
+      src={`/banks/icon-bank-${id}.svg`}
+      alt={id}
+      width={size}
+      height={size}
+      className="rounded-full object-contain"
+    />
+  );
+}
 
 function BankGrid() {
   const [selected, setSelected] = useState<string | null>(null);
@@ -29,12 +42,7 @@ function BankGrid() {
             background: selected === bank.id ? "var(--primary-subtle)" : "var(--background)",
           }}
         >
-          <div
-            className="h-9 w-9 rounded-full flex items-center justify-center text-xs font-bold text-white"
-            style={{ background: bank.color }}
-          >
-            {bank.name[0]}
-          </div>
+          <BankLogo id={bank.id} size={36} />
           <span className="text-[11px] font-semibold text-center leading-tight">{bank.name}</span>
         </button>
       ))}
@@ -56,8 +64,8 @@ export default function BankSelectorPage() {
           <BankGrid />
         </PreviewBox>
         <CodeBlock code={`const BANKS = [
-  { id: "kb", name: "국민은행", color: "#FFB800" },
-  { id: "shinhan", name: "신한은행", color: "#0046FF" },
+  { id: "kb", name: "국민은행" },
+  { id: "shinhan", name: "신한은행" },
   // ...
 ];
 
@@ -70,7 +78,7 @@ export default function BankSelectorPage() {
         background: selected === bank.id ? "var(--primary-subtle)" : "var(--background)",
       }}
     >
-      <div className="h-9 w-9 rounded-full" style={{ background: bank.color }} />
+      <Image src={\`/banks/icon-bank-\${bank.id}.svg\`} width={36} height={36} className="rounded-full" />
       <span className="text-[11px] font-semibold">{bank.name}</span>
     </button>
   ))}
@@ -84,8 +92,7 @@ export default function BankSelectorPage() {
               borderColor: "var(--primary)",
               background: "var(--primary-subtle)"
             }}>
-              <div className="h-10 w-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
-                   style={{ background: "#0046FF" }}>신</div>
+              <BankLogo id="shinhan" size={40} />
               <div>
                 <p className="text-sm font-semibold">신한은행</p>
                 <p className="text-xs" style={{ color: "var(--primary)" }}>선택됨</p>
