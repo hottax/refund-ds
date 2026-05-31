@@ -14,6 +14,7 @@ const NAV = [
       { href: "/docs/foundation/spacing", label: "Spacing" },
       { href: "/docs/foundation/shadows", label: "Shadows" },
       { href: "/docs/foundation/icons", label: "Icons" },
+      { href: "/docs/foundation/ux-writing", label: "UX Writing" },
     ],
   },
   {
