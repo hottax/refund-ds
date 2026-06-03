@@ -9,6 +9,7 @@ const NAV = [
   {
     group: "Foundation",
     items: [
+      { href: "/docs/foundation/logo", label: "Logo" },
       { href: "/docs/foundation/colors", label: "Colors" },
       { href: "/docs/foundation/typography", label: "Typography" },
       { href: "/docs/foundation/spacing", label: "Spacing" },

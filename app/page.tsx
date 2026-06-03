@@ -41,7 +41,7 @@ export default function Home() {
 
       <div className="mt-16 flex gap-10">
         {[
-          { label: "Foundation", value: "5" },
+          { label: "Foundation", value: "6" },
           { label: "Components", value: "18" },
           { label: "Screens", value: "17" },
         ].map((stat) => (
